@@ -1,0 +1,112 @@
+#!/bin/ksh
+
+cd yourpath
+
+
+export current_date=$(date +"%Y-%m-%d")
+export current_time=$(date +"%H:%M:%S")
+
+##changing name of file in linux
+ls -tr -d -1 yourpath/CELVAS_URESERVE* | tail -1 |mv  CELVAS_URESERVE.csv CELVAS_URESERVE_"$current_date".csv
+
+##checking number of files received today
+export count=$(find yourpath -type f -name "*$current_date*" | wc -l)
+
+
+file=$(ls -lt | grep -E *CELVAS_URESERVE | head -n 1 | awk '{print $9}')
+
+
+if [ $count -eq 1 ]; then
+counter=1
+    if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+        new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+    fi
+
+elif [ $count -eq 2 ]; then
+counter=2
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 3 ]; then
+counter=3
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 4 ]; then
+counter=4
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 5 ]; then
+counter=5
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 6 ]; then
+counter=6
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 7 ]; then
+counter=7
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 8 ]; then
+counter=8
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 9 ]; then
+counter=9
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+elif [ $count -eq 10 ]; then
+counter=10
+if [ -f "$file" ]; then
+        extension="${file##*.}"
+        filename="${file%.*}"
+         new_filename="${filename}_BILL_CYCLE_$counter.$extension"
+        mv "$file" "$new_filename"
+fi
+
+fi
+
+exit 0
+
